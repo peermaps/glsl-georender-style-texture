@@ -102,8 +102,20 @@ zoom, and total number of features (featureCount).
 
 * vec4 fillColor - rgba
 * vec4 strokeColor - rgba
-* float fillStyle - float representing fill style. if `solid`, 10. if `dot`, 6. if `dash`, default is 10. if `line-fill-dash-length` is `short`, 10. if `line-fill-dash-length` is `medium`, 15. if `line-fill-dash-length` is `long`, 20.
-* float strokeStyle - float representing stroke style. if `solid`, 10. if `dot`, 6. if `dash`, default is 10. if `line-stroke-dash-length` is `short`, 10. if `line-stroke-dash-length` is `medium`, 15. if `line-stroke-dash-length` is `long`, 20.
+* float fillStyle - float representing fill style.
+    * if `solid`, 10.
+    * if `dot`, 6.
+    * if `dash`, default is 10.
+    * if `line-fill-dash-length` is `short`, 10.
+    * if `line-fill-dash-length` is `medium`, 15.
+    * if `line-fill-dash-length` is `long`, 20.
+* float strokeStyle - float representing stroke style.
+    * if `solid`, 10.
+    * if `dot`, 6.
+    * if `dash`, default is 10.
+    * if `line-stroke-dash-length` is `short`, 10.
+    * if `line-stroke-dash-length` is `medium`, 15.
+    * if `line-stroke-dash-length` is `long`, 20.
 * float fillDashGap - float for the gap between dashes when the `line-fill-style` is `dash`. values from 0-100. default is 50 (dash and dash gap are equal length).
 * float strokeDashGap - float for the gap between dashes when the `line-stroke-style` is `dash`. values from 0-100. default is 50 (dash and dash gap are equal length).
 * float fillWidth - line fill width in pixels
