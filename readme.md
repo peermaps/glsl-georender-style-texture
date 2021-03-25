@@ -58,12 +58,16 @@ require('resl')({
 })
 ```
 
-to run this example, do `npm install`, then `npm run example`. you should see
-output like `Server running at http://192.168.129.29:9966/`. in the browser,
-navigate to that url. you should see a large blue triangle. in the example code,
-if you change the `featureType` value, the color of the triangle should change.
-try values like 1.0, 18.0, 40.0. (please note that the color won't always change
-- some values are duplicated.)
+to run example:
+
+* clone the repo from `https://github.com/peermaps/glsl-georender-style-texture`
+* navigate to the folder where the package was cloned and do `npm install`.
+* do `npm run example`. you should see output like `Server running at http://192.168.129.29:9966/`.
+* in the browser, navigate to that url. you should see a large blue triangle.
+
+(the directions above assume that you have node.js and npm installed. instructions are for usage on the command line.)
+
+in the example code, if you change the `featureType` value, the color of the triangle should change. try values like 1.0, 18.0, 40.0.
 
 if you'd like to generate your own `texture.png`, you can use
 [georender-style2png](https://www.npmjs.com/package/georender-style2png).
