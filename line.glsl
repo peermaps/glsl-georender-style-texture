@@ -30,9 +30,11 @@ Line readLine(sampler2D styleTexture, float featureType, float zoom, float featu
   Line line;
   line.fillColor = d0;
   line.strokeColor = vec4(d1.xyz, d0.w);
-  line.fillStyle = d2.x;
-  line.strokeStyle = d2.z;
+  line.fillDashLength = d2.x;
+  //line.fillDashLength = 7.0;
   line.fillDashGap = d2.y;
+  //line.fillDashGap = 3.0;
+  line.strokeDashLength = d2.z;
   line.strokeDashGap = d2.w;
   line.fillWidth = d3.x;
   line.strokeWidth = d3.y;
