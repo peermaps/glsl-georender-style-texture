@@ -1,10 +1,10 @@
-#pragma glslify: Area = require('./area.h')
+#pragma glslify: Areaborder = require('./areaborder.h')
 
 float zoomStart = 1.0;
 float zoomCount = 21.0;
-vec2 texRange = vec2(0.6, 0.8);
+vec2 texRange = vec2(0.8, 1.0);
 
-Area readArea(sampler2D styleTexture, float featureType, float zoom, float featureCount) {
+Areaborder readAreaborder(sampler2D styleTexture, float featureType, float zoom, float featureCount) {
   float n = 2.0;
   vec4 d0 = texture2D(styleTexture, vec2(
     featureType/featureCount+0.5/featureCount,
@@ -17,10 +17,13 @@ Area readArea(sampler2D styleTexture, float featureType, float zoom, float featu
       * (texRange.y-texRange.x) + texRange.x
   )) * 255.0;
 
-  Area area;
-  area.color = d0;
-  area.zindex = d1.x;
-  return area;
+  Areaborder areaborder;
+  areaborder.color = d0;
+  areaborder.dashLength = d1.x;
+  areaborder.dashGap = d1.y;
+  areaborder.width = d1.z;
+  areaborder.zindex = d1.w;
+  return areaborder;
 }
 
-#pragma glslify: export(readArea)
+#pragma glslify: export(readAreaborder)

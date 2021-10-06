@@ -2,7 +2,7 @@
 
 float zoomStart = 1.0;
 float zoomCount = 21.0;
-vec2 texRange = vec2(0, 0.25);
+vec2 texRange = vec2(0, 0.2);
 
 Point readPoint(sampler2D styleTexture, float featureType, float zoom, float featureCount) {
   float n = 2.0;
