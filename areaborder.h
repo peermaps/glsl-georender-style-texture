@@ -1,4 +1,4 @@
-struct Areaborder {
+struct AreaBorder {
   vec4 color;
   float dashLength;
   float dashGap;
@@ -6,4 +6,4 @@ struct Areaborder {
   float zindex;
 };
 
-#pragma glslify: export(Areaborder)
+#pragma glslify: export(AreaBorder)
