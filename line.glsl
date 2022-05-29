@@ -5,27 +5,55 @@ float zoomCount = 21.0;
 vec2 texRange = vec2(0.2, 0.6);
 
 Line readLine(sampler2D styleTexture, float featureType, float zoom, float featureCount) {
-  float n = 4.0;
+  float n = 8.0;
   vec4 d0 = texture2D(styleTexture, vec2(
     featureType/featureCount+0.5/featureCount,
     ((floor(zoom)-zoomStart)/zoomCount + (0.0*2.0+1.0)/(n*zoomCount*2.0))
       * (texRange.y-texRange.x) + texRange.x
   )) * vec4(1,1,1,2.55);
+
   vec4 d1 = texture2D(styleTexture, vec2(
     featureType/featureCount+0.5/featureCount,
     ((floor(zoom)-zoomStart)/zoomCount + (1.0*2.0+1.0)/(n*zoomCount*2.0))
       * (texRange.y-texRange.x) + texRange.x
   )) * vec4(1,1,1,2.55);
+
   vec4 d2 = texture2D(styleTexture, vec2(
     featureType/featureCount+0.5/featureCount,
     ((floor(zoom)-zoomStart)/zoomCount + (2.0*2.0+1.0)/(n*zoomCount*2.0))
       * (texRange.y-texRange.x) + texRange.x
   )) * 255.0;
+
   vec4 d3 = texture2D(styleTexture, vec2(
     featureType/featureCount+0.5/featureCount,
     ((floor(zoom)-zoomStart)/zoomCount + (3.0*2.0+1.0)/(n*zoomCount*2.0))
       * (texRange.y-texRange.x) + texRange.x
   )) * 255.0;
+
+  vec4 d4 = texture2D(styleTexture, vec2(
+    featureType/featureCount+0.5/featureCount,
+    ((floor(zoom)-zoomStart)/zoomCount + (4.0*2.0+1.0)/(n*zoomCount*2.0))
+      * (texRange.y-texRange.x) + texRange.x
+  )) * vec4(1,1,1,2.55);
+
+  vec4 d5 = texture2D(styleTexture, vec2(
+    featureType/featureCount+0.5/featureCount,
+    ((floor(zoom)-zoomStart)/zoomCount + (5.0*2.0+1.0)/(n*zoomCount*2.0))
+      * (texRange.y-texRange.x) + texRange.x
+  )) * vec4(1,1,1,2.55);
+
+  vec4 d6 = texture2D(styleTexture, vec2(
+    featureType/featureCount+0.5/featureCount,
+    ((floor(zoom)-zoomStart)/zoomCount + (6.0*2.0+1.0)/(n*zoomCount*2.0))
+      * (texRange.y-texRange.x) + texRange.x
+  )) * 255.0;
+
+  vec4 d7 = texture2D(styleTexture, vec2(
+    featureType/featureCount+0.5/featureCount,
+    ((floor(zoom)-zoomStart)/zoomCount + (7.0*2.0+1.0)/(n*zoomCount*2.0))
+      * (texRange.y-texRange.x) + texRange.x
+  )) * 255.0;
+
 
   Line line;
   line.fillColor = d0;
@@ -37,6 +65,13 @@ Line readLine(sampler2D styleTexture, float featureType, float zoom, float featu
   line.fillWidth = d3.x;
   line.strokeWidth = d3.y;
   line.zindex = d3.z;
+  line.labelFillColor = d4;
+  line.labelStrokeColor = d5;
+  line.labelFont = d6.x;
+  line.labelFontSize = d6.y;
+  line.labelPriority = d6.z;
+  line.labelConstraints = d6.w;
+  line.labelStrokeWidth = d7.x;
   return line;
 }
 
