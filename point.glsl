@@ -2,7 +2,13 @@
 
 float zoomStart = 1.0;
 float zoomCount = 21.0;
-vec2 texRange = vec2(0, 0.2);
+float pointHeight = 6.0*zoomCount;
+float lineHeight = 8.0*zoomCount;
+float areaHeight = 6.0*zoomCount;
+float areaBorderHeight = 2.0*zoomCount;
+float totalHeight = pointHeight + lineHeight + areaHeight + areaBorderHeight;
+
+vec2 texRange = vec2(0, pointHeight/totalHeight);
 
 Point readPoint(sampler2D styleTexture, float featureType, float zoom, float featureCount) {
   float n = 6.0;
@@ -52,7 +58,7 @@ Point readPoint(sampler2D styleTexture, float featureType, float zoom, float fea
   point.labelFontSize = d4.y;
   point.labelPriority = d4.z;
   point.labelConstraints = d4.w;
-  point.labelStrokeWidth = d5.x
+  point.labelStrokeWidth = d5.x;
   return point;
 }
 

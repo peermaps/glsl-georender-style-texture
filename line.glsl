@@ -2,7 +2,13 @@
 
 float zoomStart = 1.0;
 float zoomCount = 21.0;
-vec2 texRange = vec2(0.2, 0.6);
+float pointHeight = 6.0*zoomCount;
+float lineHeight = 8.0*zoomCount;
+float areaHeight = 6.0*zoomCount;
+float areaBorderHeight = 2.0*zoomCount;
+float totalHeight = pointHeight + lineHeight + areaHeight + areaBorderHeight;
+
+vec2 texRange = vec2(pointHeight/totalHeight, (pointHeight + lineHeight)/totalHeight);
 
 Line readLine(sampler2D styleTexture, float featureType, float zoom, float featureCount) {
   float n = 8.0;
