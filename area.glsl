@@ -2,10 +2,10 @@
 
 float zoomStart = 1.0;
 float zoomCount = 21.0;
-float pointHeight = 6.0*zoomCount;
+float pointHeight = 7.0*zoomCount;
 float lineHeight = 8.0*zoomCount;
 float areaHeight = 6.0*zoomCount;
-float areaBorderHeight = 2.0*zoomCount;
+float areaBorderHeight = 3.0*zoomCount;
 float totalHeight = pointHeight + lineHeight + areaHeight + areaBorderHeight;
 
 vec2 texRange = vec2((pointHeight + lineHeight)/totalHeight, (pointHeight+lineHeight+areaHeight)/totalHeight);
@@ -51,13 +51,15 @@ Area readArea(sampler2D styleTexture, float featureType, float zoom, float featu
   Area area;
   area.color = d0;
   area.zindex = d1.x;
+  area.labelStrokeWidth = d1.y;
   area.labelFillColor = d2;
   area.labelStrokeColor = d3;
   area.labelFont = d4.x;
   area.labelFontSize = d4.y;
   area.labelPriority = d4.z;
   area.labelConstraints = d4.w;
-  area.labelStrokeWidth = d5.x;
+  area.labelSprite = d5.x;
+  area.sprite = d5.y*256.0 + d5.z;
   return area;
 }
 

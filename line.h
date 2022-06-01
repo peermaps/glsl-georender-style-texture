@@ -6,7 +6,8 @@ struct Line {
   float strokeDashLength;
   float strokeDashGap;
   float fillWidth;
-  float strokeWidth;
+  float strokeWidthInner;
+  float strokeWidthOuter;
   float zindex;
   vec4 labelFillColor;
   vec4 labelStrokeColor;
@@ -15,6 +16,8 @@ struct Line {
   float labelPriority;
   float labelConstraints;
   float labelStrokeWidth;
+  float labelSprite;
+  float sprite;
 };
 
 #pragma glslify: export(Line)

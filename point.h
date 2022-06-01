@@ -1,6 +1,9 @@
 struct Point {
-  vec4 color;
+  vec4 fillColor;
+  vec4 strokeColor;
   float size;
+  float strokeWidthInner;
+  float strokeWidthOuter;
   float zindex;
   vec4 labelFillColor;
   vec4 labelStrokeColor;
@@ -9,6 +12,8 @@ struct Point {
   float labelPriority;
   float labelConstraints;
   float labelStrokeWidth;
+  float labelSprite;
+  float sprite;
 };
 
 #pragma glslify: export(Point)
