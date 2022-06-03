@@ -8,12 +8,15 @@ float areaHeight = 6.0*zoomCount;
 float areaBorderHeight = 3.0*zoomCount;
 float totalHeight = pointHeight + lineHeight + areaHeight + areaBorderHeight;
 
-vec2 texRange = vec2(0, pointHeight/totalHeight);
+vec2 texRange = vec2(0.0, pointHeight/(totalHeight-1.0));
 
 Point readPoint(sampler2D styleTexture, float featureType, float zoom, float featureCount) {
   float n = 7.0;
+  float px = featureType; //pixel x
+  //float py = 
+
   vec4 d0 = texture2D(styleTexture, vec2(
-    featureType/featureCount+0.5/featureCount,
+    px/featureCount+0.5/featureCount,
     ((floor(zoom)-zoomStart)/zoomCount + (0.0*2.0+1.0)/(n*zoomCount*2.0))
       * (texRange.y-texRange.x) + texRange.x
   )) * vec4(1,1,1,2.55);
