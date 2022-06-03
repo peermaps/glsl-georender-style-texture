@@ -8,7 +8,8 @@ float areaHeight = 6.0*zoomCount;
 float areaBorderHeight = 3.0*zoomCount;
 float totalHeight = pointHeight + lineHeight + areaHeight + areaBorderHeight;
 
-vec2 texRange = vec2(pointHeight/totalHeight, (pointHeight + lineHeight)/totalHeight);
+//vec2 texRange = vec2(pointHeight/totalHeight, (pointHeight + lineHeight)/totalHeight);
+vec2 texRange = vec2(0.29, 0.625);
 
 Line readLine(sampler2D styleTexture, float featureType, float zoom, float featureCount) {
   float n = 8.0;
@@ -70,7 +71,7 @@ Line readLine(sampler2D styleTexture, float featureType, float zoom, float featu
   line.strokeDashGap = d2.w;
   line.fillWidth = d3.x;
   line.strokeWidthInner = d3.y;
-  line.strokeWidthOuter = d3.z
+  line.strokeWidthOuter = d3.z;
   line.zindex = d3.w;
   line.labelFillColor = d4;
   line.labelStrokeColor = d5;
