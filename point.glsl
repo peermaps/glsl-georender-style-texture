@@ -6,7 +6,7 @@ float pointHeight = 7.0*zoomCount;
 float lineHeight = 8.0*zoomCount;
 float areaHeight = 6.0*zoomCount;
 float areaBorderHeight = 3.0*zoomCount;
-float totalHeight = pointHeight + lineHeight + areaHeight + areaBorderHeight;
+float totalHeight = pointHeight + lineHeight + areaHeight + areaBorderHeight + 200.0;
 float pointStart = 0.0;
 
 Point readPoint(sampler2D styleTexture, float featureType, float zoom, float featureCount) {
@@ -36,8 +36,8 @@ Point readPoint(sampler2D styleTexture, float featureType, float zoom, float fea
     px/featureCount+0.5/featureCount, (py+6.0)/totalHeight + 0.5/totalHeight)) * 255.0;
 
   Point point;
-  point.fillColor = d1;
-  point.strokeColor = d0;
+  point.fillColor = d0;
+  point.strokeColor = d1;
   point.size = d2.x;
   point.strokeWidthInner = d2.y;
   point.strokeWidthOuter = d2.z;
