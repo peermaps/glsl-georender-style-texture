@@ -6,10 +6,12 @@ float pointHeight = 7.0*zoomCount;
 float lineHeight = 8.0*zoomCount;
 float areaHeight = 6.0*zoomCount;
 float areaBorderHeight = 3.0*zoomCount;
-float totalHeight = pointHeight + lineHeight + areaHeight + areaBorderHeight + 200.0;
+float totalHeight = pointHeight + lineHeight + areaHeight + areaBorderHeight;
 float pointStart = 0.0;
 
-Point readPoint(sampler2D styleTexture, float featureType, float zoom, float featureCount) {
+Point readPoint(sampler2D styleTexture, float featureType, float zoom, float featureCount, vec2 imageSize) {
+  float spriteHeight = imageSize.y - totalHeight;
+  totalHeight = totalHeight + spriteHeight;
   float n = 7.0;
   float px = featureType; //pixel x
   float py = pointStart + n * (zoomStart + floor(zoom)); //pixel y
