@@ -6,7 +6,7 @@ float pointHeight = 7.0*zoomCount;
 float lineHeight = 8.0*zoomCount;
 float areaHeight = 6.0*zoomCount;
 float areaBorderHeight = 3.0*zoomCount;
-float totalHeight = pointHeight + lineHeight + areaHeight + areaBorderHeight + 200.0;
+float totalHeight = pointHeight + lineHeight + areaHeight + areaBorderHeight;
 float lineStart = pointHeight;
 
 Line readLine(sampler2D styleTexture, float featureType, float zoom, float featureCount) {

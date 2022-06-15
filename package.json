@@ -1,6 +1,6 @@
 {
   "name": "glsl-georender-style-texture",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "glslify module to read a georender style texture",
   "directories": {
     "example": "example"
