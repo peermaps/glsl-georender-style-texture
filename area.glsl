@@ -6,32 +6,33 @@ float pointHeight = 7.0*zoomCount;
 float lineHeight = 8.0*zoomCount;
 float areaHeight = 6.0*zoomCount;
 float areaBorderHeight = 3.0*zoomCount;
-float totalHeight = pointHeight + lineHeight + areaHeight + areaBorderHeight + 200.0;
+float spriteHeight = 10.0*zoomCount;
+float imageHeight = pointHeight + lineHeight + areaHeight + areaBorderHeight + spriteHeight;
 float areaStart = pointHeight + lineHeight;
 
-Area readArea(sampler2D styleTexture, float featureType, float zoom, float featureCount) {
-  float imageWidth = featureCount + 200.0;
+Area readArea(sampler2D styleTexture, float featureType, float zoom, float featureCount, vec2 imageSize) {
+  float imageWidth = imageSize.x;
   float n = 6.0;
   float px = featureType; //pixel x
-  float py = areaStart + n * (zoomStart + floor(zoom)); //pixel y
+  float py = areaStart + n * (floor(zoom)-zoomStart); //pixel y
 
   vec4 d0 = texture2D(styleTexture, vec2(
-    px/imageWidth+0.5/imageWidth, (py+0.0)/totalHeight + 0.5/totalHeight)) * vec4(1,1,1,2.55);
+    px/imageWidth+0.5/imageWidth, (py+0.0)/imageHeight + 0.5/imageHeight)) * vec4(1,1,1,2.55);
 
   vec4 d1 = texture2D(styleTexture, vec2(
-    px/imageWidth+0.5/imageWidth, (py+1.0)/totalHeight + 0.5/totalHeight)) * 255.0;
+    px/imageWidth+0.5/imageWidth, (py+1.0)/imageHeight + 0.5/imageHeight)) * 255.0;
 
   vec4 d2 = texture2D(styleTexture, vec2(
-    px/imageWidth+0.5/imageWidth, (py+2.0)/totalHeight + 0.5/totalHeight)) * vec4(1,1,1,2.55);
+    px/imageWidth+0.5/imageWidth, (py+2.0)/imageHeight + 0.5/imageHeight)) * vec4(1,1,1,2.55);
 
   vec4 d3 = texture2D(styleTexture, vec2(
-    px/featureCount+0.5/featureCount, (py+3.0)/totalHeight + 0.5/totalHeight)) * vec4(1,1,1,2.55);
+    px/featureCount+0.5/featureCount, (py+3.0)/imageHeight + 0.5/imageHeight)) * vec4(1,1,1,2.55);
 
   vec4 d4 = texture2D(styleTexture, vec2(
-    px/imageWidth+0.5/imageWidth, (py+4.0)/totalHeight + 0.5/totalHeight)) * 255.0;
+    px/imageWidth+0.5/imageWidth, (py+4.0)/imageHeight + 0.5/imageHeight)) * 255.0;
 
   vec4 d5 = texture2D(styleTexture, vec2(
-    px/imageWidth+0.5/imageWidth, (py+5.0)/totalHeight + 0.5/totalHeight)) * 255.0;
+    px/imageWidth+0.5/imageWidth, (py+5.0)/imageHeight + 0.5/imageHeight)) * 255.0;
 
   Area area;
   area.color = d0;
