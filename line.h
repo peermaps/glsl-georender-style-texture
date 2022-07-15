@@ -16,7 +16,6 @@ struct Line {
   float labelPriority;
   float labelConstraints;
   float labelStrokeWidth;
-  float labelSprite;
   float sprite;
 };
 

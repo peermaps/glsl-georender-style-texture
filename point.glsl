@@ -4,7 +4,7 @@ float zoomStart = 1.0;
 float zoomCount = 21.0;
 float pointHeight = 7.0*zoomCount;
 float lineHeight = 8.0*zoomCount;
-float areaHeight = 6.0*zoomCount;
+float areaHeight = 5.0*zoomCount;
 float areaBorderHeight = 3.0*zoomCount;
 float totalHeight = pointHeight + lineHeight + areaHeight + areaBorderHeight;
 float pointStart = 0.0;
@@ -49,8 +49,7 @@ Point readPoint(sampler2D styleTexture, float featureType, float zoom, float fea
   point.labelPriority = d5.z;
   point.labelConstraints = d5.w;
   point.labelStrokeWidth = d6.x;
-  point.labelSprite = d6.y;
-  point.sprite = d6.z*256.0 + d6.w;
+  point.sprite = d6.y*256.0 + d6.z;
   return point;
 }
 
