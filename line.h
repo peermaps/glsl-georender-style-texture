@@ -16,7 +16,8 @@ struct Line {
   float labelPriority;
   float labelConstraints;
   float labelStrokeWidth;
-  float sprite;
+  float labelSprite;
+  float labelSpritePlacement;
 };
 
 #pragma glslify: export(Line)

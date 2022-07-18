@@ -4,24 +4,22 @@ float zoomStart = 1.0;
 float zoomCount = 21.0;
 float pointHeight = 7.0*zoomCount;
 float lineHeight = 8.0*zoomCount;
-float areaHeight = 5.0*zoomCount;
-float areaBorderHeight = 3.0*zoomCount;
-float totalHeight = pointHeight + lineHeight + areaHeight + areaBorderHeight;
+float areaHeight = 6.0*zoomCount;
 float areaBorderStart = pointHeight + lineHeight + areaHeight;
 
-AreaBorder readAreaBorder(sampler2D styleTexture, float featureType, float zoom, float featureCount) {
+AreaBorder readAreaBorder(sampler2D styleTexture, float featureType, float zoom, vec2 imageSize) {
   float n = 3.0;
   float px = featureType; //pixel x
-  float py = areaBorderStart + n * (zoomStart + floor(zoom)); //pixel y
+  float py = areaBorderStart + n * (floor(zoom) - zoomStart); //pixel y
 
   vec4 d0 = texture2D(styleTexture, vec2(
-    px/featureCount+0.5/featureCount, (py+0.0)/totalHeight + 0.5/totalHeight)) * vec4(1,1,1,2.55);
+    px/imageSize.x+0.5/imageSize.x, (py+0.0)/imageSize.y + 0.5/imageSize.y)) * vec4(1,1,1,2.55);
 
   vec4 d1 = texture2D(styleTexture, vec2(
-    px/featureCount+0.5/featureCount, (py+1.0)/totalHeight + 0.5/totalHeight)) * 255.0;
+    px/imageSize.x+0.5/imageSize.x, (py+1.0)/imageSize.y + 0.5/imageSize.y)) * 255.0;
 
   vec4 d2 = texture2D(styleTexture, vec2(
-    px/featureCount+0.5/featureCount, (py+2.0)/totalHeight + 0.5/totalHeight)) * 255.0;
+    px/imageSize.x+0.5/imageSize.x, (py+2.0)/imageSize.y + 0.5/imageSize.y)) * 255.0;
 
   AreaBorder areaBorder;
   areaBorder.color = d0;

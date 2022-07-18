@@ -9,6 +9,7 @@ struct Area {
   float labelPriority;
   float labelConstraints;
   float labelSprite;
+  float labelSpritePlacement;
   float sprite;
 };
 
