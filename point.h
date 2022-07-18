@@ -12,7 +12,6 @@ struct Point {
   float labelPriority;
   float labelConstraints;
   float labelStrokeWidth;
-  float labelSprite;
   float sprite;
 };
 
