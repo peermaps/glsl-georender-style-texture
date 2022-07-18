@@ -53,12 +53,8 @@ Line readLine(sampler2D styleTexture, float featureType, float zoom, vec2 imageS
   line.labelPriority = d6.z;
   line.labelConstraints = d6.w;
   line.labelStrokeWidth = d7.x;
-<<<<<<< HEAD
-  line.sprite = d7.y*256.0 + d7.z;
-=======
   line.labelSprite = d7.y*256.0 + d7.z;
   line.labelSpritePlacement = d7.w;
->>>>>>> dev-marina
   return line;
 }
 
