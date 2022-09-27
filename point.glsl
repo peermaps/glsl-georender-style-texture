@@ -44,7 +44,7 @@ Point readPoint(sampler2D styleTexture, float featureType, float zoom, vec2 imag
   point.labelPriority = d5.z;
   point.labelConstraints = d5.w;
   point.labelStrokeWidth = d6.x;
-  point.sprite = d6.y*256.0 + d6.z;
+  point.sprite = d6.y*255.0 + d6.z;
   return point;
 }
 
