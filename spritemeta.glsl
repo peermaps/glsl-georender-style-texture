@@ -10,6 +10,7 @@ vec2 spriteLocation(Settings settings, float spriteIndex) {
 }
 
 SpriteMeta readSpriteMeta(sampler2D styleTexture, vec2 imageSize, float index) {
+  //todo: pass in number of sprites instead of hardcoding
   Settings settings = defaultSettings(7.0);
 
   vec2 px0 = spriteLocation(settings, index);

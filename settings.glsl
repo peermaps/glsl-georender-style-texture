@@ -9,7 +9,7 @@ Settings defaultSettings(float spriteCount) {
   settings.lineHeight = 8.0*settings.zoomCount;
   settings.areaHeight = 6.0*settings.zoomCount;
   settings.areaBorderHeight = 3.0*settings.zoomCount; 
-  settings.spriteMetaHeight = 2.0*(spriteCount/settings.featureCount)+1.0;
+  settings.spriteMetaHeight = 2.0*ceil(spriteCount/settings.featureCount);
   return settings;
 }
 
